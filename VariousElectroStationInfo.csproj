@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7EF5D358-52ED-465D-81B1-B0523D9CDAC7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VariousElectroStationInfo</RootNamespace>
+    <AssemblyName>VariousElectroStationInfo</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NodaTime">
+      <HintPath>..\..\..\packages\NodaTime.1.2.0\lib\net35-Client\NodaTime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ElectroStationInfoManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Domain\Sms.Readiness.Domain2\Sms.Readiness.Domain2.csproj">
+      <Project>{1A8F85E9-CC2D-446D-AD1B-0EC83D82AB4B}</Project>
+      <Name>Sms.Readiness.Domain2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Contracts\DictionariesContracts\DictionariesContracts.csproj">
+      <Project>{D285B4F8-E609-404C-8160-EEC82D2B019C}</Project>
+      <Name>DictionariesContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Contracts\IUserInfo\IUserInfo.csproj">
+      <Project>{2D0A81C5-89FB-4688-925D-12347D72459D}</Project>
+      <Name>IUserInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DispatchCenterDayStatusManager\DispatchCenterDayStatusManager.csproj">
+      <Project>{c881cc7f-6a0c-4d2f-8908-0c636a8c133b}</Project>
+      <Name>DispatchCenterDayStatusManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.csproj">
+      <Project>{957C4E7F-25F8-49B1-8809-788CBB430720}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sms.Readiness.Server.DAL\DAL.csproj">
+      <Project>{9c9ef0c1-0906-43f8-b358-7481fdd4310f}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dictionaries\Dictionaries.csproj">
+      <Project>{9D52E539-CA35-4D7C-8E21-70046B7E1074}</Project>
+      <Name>Dictionaries</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ElectroStationLocksManager\ElectroStationLocksManager.csproj">
+      <Project>{49fac4de-d103-4ab8-bf80-2bd7712ecbd8}</Project>
+      <Name>ElectroStationLocksManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserInfoService\UserInfoService.csproj">
+      <Project>{58d2cc0b-3f96-4ece-af8a-9031790bb4a2}</Project>
+      <Name>UserInfoService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
